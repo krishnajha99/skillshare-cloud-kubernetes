@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: skillshare-cloud-discovery
+spec:
+  type: LoadBalancer
+  selector:
+    app: skillshare-cloud-discovery
+  ports:
+    - name: http
+      protocol: TCP
+      # ELB's port
+      port: 8081
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skillshare-cloud-discovery
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: skillshare-cloud-discovery
+  template:
+    metadata:
+      labels:
+        app: spriskillshareng-cloud-discovery
+    spec:
+      containers:
+        - name: skillshare-cloud-discovery
+          image: krishnajha99/skillshare-cloud-discovery:latest
