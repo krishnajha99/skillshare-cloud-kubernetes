@@ -24,7 +24,7 @@ spec:
   template:
     metadata:
       labels:
-        app: spriskillshareng-cloud-discovery
+        app: skillshare-cloud-discovery
     spec:
       containers:
         - name: skillshare-cloud-discovery
